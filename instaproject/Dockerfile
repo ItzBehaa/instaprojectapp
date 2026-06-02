@@ -5,6 +5,6 @@ RUN mvn clean package -DskipTests
 
 FROM openjdk:21-slim
 WORKDIR /app
-COPY --from=build /app/target/INSTAproject-0.0.1-SNAPSHOT.jar .
+COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
-CMD ["java", "-jar", "INSTAproject-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "app.jar"]
